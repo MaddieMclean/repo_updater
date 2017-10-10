@@ -54,8 +54,7 @@ def get_args():
 
 def main():
     args = get_args()
-    cmd = args.command()
-    cmd = cmd.lower()
+    cmd = args.command
     process(command[cmd])
 
 
