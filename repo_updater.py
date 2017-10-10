@@ -1,4 +1,5 @@
 import subprocess
+import argparse
 import os
 
 repos = {
@@ -20,6 +21,11 @@ repos = {
     'sink-shredder-task'
 }
 
+command = {
+    'clone': clone,
+    'pull': pull
+}
+
 
 def git(cmd):
     return ['git'] + cmd.split()
@@ -34,9 +40,29 @@ def pull(repo):
     subprocess.call(git(f'-C {path}/{repo} pull'))
 
 
-for repo in repos:
-    try:
-        # clone(repo)
-        pull(repo)
-    except NotADirectoryError as e:
-        print(f'{repo} not found')
+def process(action):
+    for repo in repos:
+        try:
+            action(repo)
+        except NotADirectoryError as e:
+            # in the case of pull
+            print(f'{repo} not found')
+
+
+def get_args():
+    parser = argparse.ArgumentParser()
+    parser.add_argument('-exc', '--exclude', required=False, type=str)
+    parser.add_argument('-cmd', '--command', required=True, type=str)
+    args = parser.parse_args()
+    return args
+
+
+def main():
+    args = get_args()
+    cmd = args.command()
+    cmd = cmd.lower()
+    process(command[cmd])
+
+
+if __name__ == '__main__':
+    main()
