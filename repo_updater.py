@@ -21,11 +21,6 @@ repos = {
     'sink-shredder-task'
 }
 
-command = {
-    'clone': clone,
-    'pull': pull
-}
-
 
 def git(cmd):
     return ['git'] + cmd.split()
@@ -65,4 +60,8 @@ def main():
 
 
 if __name__ == '__main__':
+    command = {
+        'clone': clone,
+        'pull': pull
+    }
     main()
