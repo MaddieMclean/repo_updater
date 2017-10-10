@@ -2,25 +2,6 @@ import subprocess
 import argparse
 import os
 
-repos = {
-    'commons-sink',
-    'commons-shredder',
-    'commons-bootstrap',
-    'commons-email',
-    'commons-fix',
-    'sink-router',
-    'sink-import-handler',
-    'sink-eml-handler',
-    'sink-task-handler',
-    'sink-bootstrap-handler',
-    'sink-trayport-handler',
-    'sink-raw-handler',
-    'sink-cse-handler',
-    'sink-dlq-router',
-    'sink-csv2mail-handler',
-    'sink-shredder-task'
-}
-
 
 def git(cmd):
     return ['git'] + cmd.split()
@@ -31,17 +12,17 @@ def clone(repo):
 
 
 def pull(repo):
-    path = os.getcwd()
     subprocess.call(git(f'-C {path}/{repo} pull'))
 
 
 def process(action):
-    for repo in repos:
-        try:
-            action(repo)
-        except NotADirectoryError as e:
-            # in the case of pull
-            print(f'{repo} not found')
+    with open(f'{path}/.gitignore', 'r') as repos:
+        for repo in repos:
+            try:
+                action(repo)
+            except NotADirectoryError as e:
+                # in the case of pull
+                print(f'{repo} not found')
 
 
 def get_args():
@@ -63,4 +44,5 @@ if __name__ == '__main__':
         'clone': clone,
         'pull': pull
     }
+    path = os.getcwd()
     main()
