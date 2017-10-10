@@ -16,7 +16,8 @@ repos = {
     'sink-raw-handler',
     'sink-cse-handler',
     'sink-dlq-router',
-    'sink-csv2mail-handler'
+    'sink-csv2mail-handler',
+    'sink-shredder-task'
 }
 
 
