@@ -14,3 +14,4 @@ sink-cse-handler
 sink-dlq-router
 sink-csv2mail-handler
 sink-shredder-task
+sink-hsbc-evolve-handler
