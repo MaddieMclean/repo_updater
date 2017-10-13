@@ -17,4 +17,5 @@ sink-hsbc-evolve-handler
 sink-jpmpb-tran-handler
 feeds-router
 abaci-notifications-router 
+terraform
 steeleye-api
