@@ -8,7 +8,7 @@ def git(cmd):
 
 
 def clone(repo):
-    subprocess.call(git(f'clone https://github.com/steeleye/{repo}.git'))
+    subprocess.call(git(f'clone https://github.com/steeleye/{repo}'))
 
 
 def pull(repo):
