@@ -1,9 +1,8 @@
 commons-sink
-commons-shredder
 commons-bootstrap
 commons-email
 commons-fix
-sink-router
+commons-mifid-ii
 sink-import-handler
 sink-eml-handler
 sink-task-handler
@@ -15,4 +14,7 @@ sink-dlq-router
 sink-csv2mail-handler
 sink-shredder-task
 sink-hsbc-evolve-handler
+sink-jpmpb-tran-handler
+feeds-router
+abaci-notifications-router 
 steeleye-api
