@@ -18,4 +18,5 @@ sink-jpmpb-tran-handler
 feeds-router
 abaci-notifications-router 
 terraform
+infrastructure
 steeleye-api
