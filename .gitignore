@@ -16,9 +16,11 @@ feeds-shredder-task
 feeds-router
 feeds-jpmpb-tran-handler
 feeds-hsbc-evolve-handler
+abaci
+abaci-sdk-python
 abaci-notifications-router
 spider-reference-data
 terraform
 infrastructure
 steeleye-api
-abaci
+
