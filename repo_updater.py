@@ -16,7 +16,7 @@ def pull(repo):
 
 
 def process(action):
-    with open(f'{path}/.gitignore', 'r') as repos:
+    with open(f'{path}/repositories.txt', 'r') as repos:
         for repo in repos:
             try:
                 action(repo)
@@ -44,5 +44,5 @@ if __name__ == '__main__':
         'clone': clone,
         'pull': pull
     }
-    path = os.getcwd()
+    path = "C:/Users/Mathew/PycharmProjects/SteelEye"
     main()
