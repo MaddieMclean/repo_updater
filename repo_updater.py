@@ -12,6 +12,7 @@ def clone(repo):
 
 
 def pull(repo):
+    subprocess.call(git(f'-C {path}/{repo} checkout master'))
     subprocess.call(git(f'-C {path}/{repo} pull'))
 
 
