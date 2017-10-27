@@ -17,6 +17,14 @@ def pull(repo):
     subprocess.call(git(f'-C {path}/{repo} pull'))
 
 
+def push(repo):
+    subprocess.call(git(f'-C {path}/{repo} checkout master'))
+    subprocess.call(git(f'-C {path}/{repo} checkout pypi-update'))
+    subprocess.call(git(f'-C {path}/{repo} add .'))
+    subprocess.call(git(f'-C {path}/{repo} commit -m "remove_pypi_secret"'))
+    subprocess.call(git(f'-C {path}/{repo} push origin pypi-update'))
+
+
 def process(action):
     with open(f'{path}/repositories.txt', 'r') as repos:
         for repo in repos:
@@ -44,7 +52,8 @@ def main():
 if __name__ == '__main__':
     command = {
         'clone': clone,
-        'pull': pull
+        'pull': pull,
+        'push': push
     }
     path = "C:/Users/Mathew/PycharmProjects/SteelEye"
     main()
